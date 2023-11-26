@@ -1,5 +1,6 @@
 using CardGameStrategies;
 using Cards.Shuffle;
+using GameExperiments;
 
 
 namespace NsuLabs.Util;
@@ -11,22 +12,18 @@ public class Experimentations
     {
         const int experimentCounts = 10000;
 
-        IDeckShuffler deckShuffler = new DeckShuffler();
+        var deckShuffler = new DeckShuffler();
+        var cardGameExperiment = new CardGameExperiment(deckShuffler);
+        var firstGameStrategy = new PickFirstStrategy();
+        var secondGameStrategy = new PickFirstStrategy();
 
         float successCount = 0;
         for (var i = 0; i < experimentCounts; i++)
         {
-            var deck = deckShuffler.GetNewShuffledDeck();
-            
-            var firstHalfOfDeck = deck.FirstPartOfDeck;
-            var firstColor =firstHalfOfDeck[PickFirstStrategy
-                .GetCardNumber(firstHalfOfDeck)].Color;
-    
-            var secondHalfOfDeck = deck.SecondPartOfDeck;
-            var secondColor =secondHalfOfDeck[PickFirstStrategy
-                .GetCardNumber(secondHalfOfDeck)].Color;
-    
-            if (firstColor == secondColor)
+            var experimentResult = cardGameExperiment
+                .RunExperiment(firstGameStrategy, secondGameStrategy);
+
+            if (experimentResult)
                 successCount++;
         }
 

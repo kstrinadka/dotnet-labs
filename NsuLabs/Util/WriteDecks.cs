@@ -14,7 +14,6 @@ public class WriteDecks
         PrintNewDeck();
         PrintNewDeckAndShuffle();
         SufflerGetShuffledDeck();
-
     }
 
 
