@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cards", "Cards\Cards.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameExperiments", "GameExperiments\GameExperiments.csproj", "{E326F93F-5474-4D56-81C3-07325E95DAAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{26BD05D8-69EA-4235-8877-DF3071A4034B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{E326F93F-5474-4D56-81C3-07325E95DAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E326F93F-5474-4D56-81C3-07325E95DAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E326F93F-5474-4D56-81C3-07325E95DAAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26BD05D8-69EA-4235-8877-DF3071A4034B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26BD05D8-69EA-4235-8877-DF3071A4034B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26BD05D8-69EA-4235-8877-DF3071A4034B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26BD05D8-69EA-4235-8877-DF3071A4034B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -3,12 +3,12 @@ using Cards.Card;
 
 namespace CardGameStrategies;
 
-public class PickFirstStrategy : ICardPickStrategy
+public class PickSecondStrategy : ICardPickStrategy
 {
     
     public int Pick(Card[] cards)
     {
-        return 0;
+        return 1;
     }
    
 }
