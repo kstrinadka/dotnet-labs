@@ -19,6 +19,8 @@
         <ProjectReference Include="..\Cards\Cards.csproj" />
         <ProjectReference Include="..\CardGameStrategies\CardGameStrategies.csproj" />
         <ProjectReference Include="..\GameExperiments\GameExperiments.csproj" />
+
+
     </ItemGroup>
 
 

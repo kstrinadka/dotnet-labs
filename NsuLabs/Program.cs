@@ -1,27 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using NsuLabs;
-using NsuLabs.Cards;
-using NsuLabs.Strategies;
+using CardGameStrategies;
+using CardGameStrategies.interfaces;
+using Cards.Shuffle;
+using GameExperiments;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using NsuLabs.Services;
 
-const int experimentCounts = 10000;
 
-float successCount = 0;
-for (var i = 0; i < experimentCounts; i++)
-{
-    var deck = new Deck();
-    var firstHalfOfDeck = deck.FirstPartOfDeckDeck;
-    var firstColor =firstHalfOfDeck[PickFirstStrategy
-        .GetCardNumber(firstHalfOfDeck)].Color;
-    // Console.WriteLine("first color is " + firstColor);
-    
-    var secondHalfOfDeck = deck.SecondPartOfDeck;
-    var secondColor =secondHalfOfDeck[PickFirstStrategy
-        .GetCardNumber(secondHalfOfDeck)].Color;
-    // Console.WriteLine("second color is " + secondColor);
-    
-    if (firstColor == secondColor)
-        successCount++;
-}
+IHost host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices(services =>
+    {
+        services.AddHostedService<CollisiumExperimentWorker>();
+        services.AddScoped<IDeckShuffler, DeckShuffler>();
+        services.AddScoped<IElonStrategy, ElonMaskStrategy>();
+        services.AddScoped<IMarkStrategy, MarkZuckerbergStrategy>();
+        services.AddScoped<ICardGameExperiment, CardGameExperiment>();
+    })
+    .Build();
 
-Console.WriteLine(successCount / experimentCounts * 100);
+host.Run();
