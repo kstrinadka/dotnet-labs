@@ -1,6 +1,7 @@
-using NsuLabs.Cards;
+using CardGameStrategies.interfaces;
+using Cards.Card;
 
-namespace NsuLabs.Strategies;
+namespace CardGameStrategies;
 
 public class PickFirstStrategy : ICardPickStrategy
 {
@@ -14,4 +15,5 @@ public class PickFirstStrategy : ICardPickStrategy
     {
         return 1;
     }
+   
 }

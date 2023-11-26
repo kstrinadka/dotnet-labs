@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NsuLabs", "NsuLabs\NsuLabs.csproj", "{8A387022-5DB8-4264-919D-7567D8199CAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGameStrategies", "CardGameStrategies\CardGameStrategies.csproj", "{B556AE13-4791-4E62-B80A-7F49D9D5E41B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cards", "Cards\Cards.csproj", "{F187C629-DD9C-4C5F-87C8-8E64C150A0D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{8A387022-5DB8-4264-919D-7567D8199CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A387022-5DB8-4264-919D-7567D8199CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A387022-5DB8-4264-919D-7567D8199CAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B556AE13-4791-4E62-B80A-7F49D9D5E41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B556AE13-4791-4E62-B80A-7F49D9D5E41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B556AE13-4791-4E62-B80A-7F49D9D5E41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B556AE13-4791-4E62-B80A-7F49D9D5E41B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F187C629-DD9C-4C5F-87C8-8E64C150A0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F187C629-DD9C-4C5F-87C8-8E64C150A0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F187C629-DD9C-4C5F-87C8-8E64C150A0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F187C629-DD9C-4C5F-87C8-8E64C150A0D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

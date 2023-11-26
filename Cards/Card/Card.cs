@@ -1,4 +1,4 @@
-﻿namespace NsuLabs.Cards;
+﻿namespace Cards.Card;
 
 /// <summary>
 /// Игральная карта

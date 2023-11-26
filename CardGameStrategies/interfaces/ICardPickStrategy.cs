@@ -1,6 +1,7 @@
-using NsuLabs.Cards;
+using Cards;
+using Cards.Card;
 
-namespace NsuLabs.Strategies;
+namespace CardGameStrategies.interfaces;
 
 /// <summary>
 /// Стратегия выбора карты
