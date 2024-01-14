@@ -2,6 +2,7 @@
 
 using CardGameStrategies;
 using CardGameStrategies.interfaces;
+using Cards;
 using Cards.Shuffle;
 using GameExperiments;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddScoped<IElonStrategy, ElonMaskStrategy>();
         services.AddScoped<IMarkStrategy, MarkZuckerbergStrategy>();
         services.AddScoped<ICardGameExperiment, CardGameExperiment>();
+        // services.AddScoped<Deck>();
     })
     .Build();
 

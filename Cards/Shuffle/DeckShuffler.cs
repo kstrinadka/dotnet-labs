@@ -7,6 +7,7 @@ public class DeckShuffler: IDeckShuffler
     
     public Deck GetNewShuffledDeck()
     {
+        //ответственность щшаффлера только шаффлить
         var deck = new Deck();
         return Shuffle(deck);
     }

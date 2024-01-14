@@ -1,45 +1,38 @@
 using Cards.Card;
+using NsuLabs.Util;
 
 namespace Cards;
 
 public class Deck
 {
-    public const int HalfDeckSize = 18;  // Половина размера колоды
-    public const int DeckSize = 36;      // Полный размер колоды
     
-    public Card.Card[] WholeDeck { get; set; }
-    public Card.Card[] FirstPartOfDeck { get; set; }
-    public Card.Card[] SecondPartOfDeck { get; set; }
+    public Card.Card[] WholeDeck { get; set; } = CreateAndGetDeck();
 
-    public Deck()
+    public Card.Card[] GetFirstDeckHalf()
     {
-        WholeDeck = CreateAndGetDeck();
-        UpdateHalfs();
+        return SubArray(WholeDeck, 0, ProgramConstants.HalfDeckSize);
     }
     
-    // обновить половинки колод исходя из всей колоды
-    public void UpdateHalfs()
+    public Card.Card[] GetSecondDeckHalf()
     {
-        FirstPartOfDeck = SubArray(WholeDeck, 0, HalfDeckSize);
-        SecondPartOfDeck = SubArray(WholeDeck, HalfDeckSize, HalfDeckSize);
+        return SubArray(WholeDeck, ProgramConstants.HalfDeckSize, ProgramConstants.HalfDeckSize);
     }
 
     // Shuffler использует этот метод для перемешивания колоды
     public void SwapCards(int firstIndex, int secondIndex)
     {
         (WholeDeck[firstIndex], WholeDeck[secondIndex]) = (WholeDeck[secondIndex], WholeDeck[firstIndex]);
-        UpdateHalfs();
     }
     
     private static Card.Card[] CreateAndGetDeck()
     {
-        var deck = new Card.Card[DeckSize];
-        for (var index = 0; index < HalfDeckSize; index++)
+        var deck = new Card.Card[ProgramConstants.DeckSize];
+        for (var index = 0; index < ProgramConstants.HalfDeckSize; index++)
         {
             deck[index] = new Card.Card(CardColor.Red);
         }
 
-        for (var index = HalfDeckSize; index < DeckSize; index++)
+        for (var index = ProgramConstants.HalfDeckSize; index < ProgramConstants.DeckSize; index++)
         {
             deck[index] = new Card.Card(CardColor.Black);
         }

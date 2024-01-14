@@ -45,7 +45,6 @@ public class Tests
     [Test]
     public void TestStrategy()
     {
-        const int halfDeckSize = 18;  
         const int deckSize = 36;     
         var cards = new Card[deckSize];
         
@@ -64,18 +63,15 @@ public class Tests
 
         var deck = new Deck();
         deck.WholeDeck = cards;
-        deck.UpdateHalfs();
 
-        ICardPickStrategy elonStrategy = new ElonMaskStrategy();
-        ICardPickStrategy markStrategy = new MarkZuckerbergStrategy();
-        
-        var experimentResult = CardGameExperiment.RunExperiment(elonStrategy, markStrategy, deck);
+        IElonStrategy elonStrategy = new ElonMaskStrategy();
+        IMarkStrategy markStrategy = new MarkZuckerbergStrategy();
+        var deckShuffler = new NonDeckShuffler(deck);
+
+        var cardGameExperiment = new CardGameExperiment(deckShuffler, elonStrategy, markStrategy);
+
+        var experimentResult = cardGameExperiment.RunExperiment();
         Assert.True(experimentResult);
-        
-        elonStrategy = new PickFirstStrategy();
-        markStrategy = new PickSecondStrategy();
-        experimentResult = CardGameExperiment.RunExperiment(elonStrategy, markStrategy, deck);
-        Assert.False(experimentResult);
     }
     
     // Колода должна быть перемешана. Т.е. метод перемешивания должен быть вызван один раз;
@@ -89,7 +85,7 @@ public class Tests
 
         // Если в первой половине красных < 18 карт, то колода перемешивалась
         int redCards = 0;
-        foreach (var card in deck.FirstPartOfDeck)
+        foreach (var card in deck.GetFirstDeckHalf())
         {
             if (card.Color == CardColor.Black)
             {

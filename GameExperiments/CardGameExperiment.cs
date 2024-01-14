@@ -7,41 +7,29 @@ namespace GameExperiments;
 public class CardGameExperiment : ICardGameExperiment
 {
     private readonly IDeckShuffler _deckShuffler;
+    private readonly IElonStrategy _elonStrategy;
+    private readonly IMarkStrategy _markStrategy;
 
-    public CardGameExperiment(IDeckShuffler deckShuffler)
+    public CardGameExperiment(IDeckShuffler deckShuffler, IElonStrategy elonStrategy, IMarkStrategy markStrategy)
     {
         this._deckShuffler = deckShuffler;
+        this._elonStrategy = elonStrategy;
+        this._markStrategy = markStrategy;
     }
 
-    public bool RunExperiment(ICardPickStrategy elonStrategy, ICardPickStrategy markStrategy)
+    public bool RunExperiment()
     {
-        
         var deck = _deckShuffler.GetNewShuffledDeck();
             
-        var firstHalfOfDeck = deck.FirstPartOfDeck;
-        var firstColor =firstHalfOfDeck[elonStrategy
+        var firstHalfOfDeck = deck.GetFirstDeckHalf();
+        var firstColor =firstHalfOfDeck[_elonStrategy
             .Pick(firstHalfOfDeck)].Color;
     
-        var secondHalfOfDeck = deck.SecondPartOfDeck;
-        var secondColor =secondHalfOfDeck[markStrategy
+        var secondHalfOfDeck = deck.GetSecondDeckHalf();
+        var secondColor =secondHalfOfDeck[_markStrategy
             .Pick(secondHalfOfDeck)].Color;
         
         return firstColor == secondColor;
     }
-    
-    public static bool RunExperiment(ICardPickStrategy elonStrategy, ICardPickStrategy markStrategy, Deck deck)
-    {
-        
-        var firstHalfOfDeck = deck.FirstPartOfDeck;
-        var firstColor = firstHalfOfDeck[elonStrategy
-            .Pick(firstHalfOfDeck)].Color;
-    
-        var secondHalfOfDeck = deck.SecondPartOfDeck;
-        var secondColor = secondHalfOfDeck[markStrategy
-            .Pick(secondHalfOfDeck)].Color;
-        
-        return firstColor == secondColor;
-    }
-
  
 }

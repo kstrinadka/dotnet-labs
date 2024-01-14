@@ -4,5 +4,5 @@ namespace GameExperiments;
 
 public interface ICardGameExperiment
 {
-    bool RunExperiment(ICardPickStrategy elonStrategy, ICardPickStrategy markStrategy);
+    bool RunExperiment();
 }

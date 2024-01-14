@@ -30,7 +30,7 @@ public class CollisiumExperimentWorker : BackgroundService
         float successCount = 0;
         for (var i = 0; i < ExperimentCounts; i++)
         {
-            var experimentResult = _cardGameExperiment.RunExperiment(_elonStrategy, _markStrategy);
+            var experimentResult = _cardGameExperiment.RunExperiment();
 
             if (experimentResult)
                 successCount++;

@@ -8,7 +8,8 @@ namespace NsuLabs.Util;
 public class Experimentations
 {
 
-    public static void DoExperiments()
+    /*
+     public static void DoExperiments()
     {
         const int experimentCounts = 10000;
 
@@ -29,6 +30,7 @@ public class Experimentations
 
         Console.WriteLine(successCount / experimentCounts * 100);
     }
+    */
     
     
 }
